@@ -14,8 +14,16 @@ class TaskController extends AbstractController
 {
     /**
      * @Route("/", name="index")
-     */
+     */    
     public function index()
+    {
+        return $this->render('task/index.html.twig');
+    }
+
+    /**
+     * @Route("/show", name="show")
+     */
+    public function show()
     {
         $tasks = array();
         foreach($this->getDoctrine()->getRepository(Task::class)->findAll() as $task)
